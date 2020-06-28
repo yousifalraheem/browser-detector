@@ -1,6 +1,9 @@
 document.onreadystatechange = function () {
     const target = document.querySelector("#jsDetector");
     target.innerHTML = "(" + whichBrowser() + ")";
+    console.log(navigator.userAgent);
+    console.log("window.safari", window.safari);
+    console.log(window.chrome);
 }
 
 function whichBrowser() {
@@ -26,7 +29,7 @@ function isIE() {
 }
 
 function isSafari() {
-    return navigator.userAgent.search("Safari") >= 0 && !!window.safari;
+    return navigator.userAgent.search("Safari") >= 0 && (!!window.safari || navigator.userAgent.search("iPhone") >= 0);
 }
 
 function isChrome() {

@@ -1,46 +1,46 @@
 document.onreadystatechange = function () {
-    const target = document.querySelector("#jsDetector")
-    target.innerHTML = `\(${whichBrowser()}\)`
+    const target = document.querySelector("#jsDetector");
+    target.innerHTML = `\(${whichBrowser()}\)`;
 }
 
 function whichBrowser() {
     if (isSafari()) {
-        return "Safari"
+        return "Safari";
     } else if (isFirefox()) {
-        return "Firefox"
+        return "Firefox";
     } else if (isEdge()) {
-        return "Edge"
+        return "Edge";
     } else if (isIE()) {
-        return "Internet Explorer"
+        return "Internet Explorer";
     } else if (isOpera()) {
-        return "Opera"
+        return "Opera";
     } else if (isChrome()) {
-        return "Chrome"
+        return "Chrome";
     } else {
-        return "Unknown"
+        return "Unknown";
     }
 }
 
 function isIE() {
-    return !!document.documentMode
+    return !!document.documentMode;
 }
 
 function isSafari() {
-    return navigator.userAgent.search("Safari") >= 0 && !!window.safari
+    return navigator.userAgent.search("Safari") >= 0 && !!window.safari;
 }
 
 function isChrome() {
-    return (navigator.userAgent.search("Chrome") >= 0 && !!!window.safari) || (!!window.chrome)
+    return (navigator.userAgent.search("Chrome") >= 0 && !!!window.safari) || (!!window.chrome);
 }
 
 function isFirefox() {
-    return navigator.userAgent.search("Firefox") >= 0 && !!!window.safari
+    return navigator.userAgent.search("Firefox") >= 0 && !!!window.safari;
 }
 
 function isEdge() {
-    return navigator.userAgent.search("Edg") >= 0 && !!!window.safari
+    return navigator.userAgent.search("Edg") >= 0 && !!!window.safari;
 }
 
 function isOpera() {
-    return navigator.userAgent.search("OPR") >= 0 && !!!window.safari
+    return navigator.userAgent.search("OPR") >= 0 && !!!window.safari;
 }

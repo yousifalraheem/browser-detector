@@ -1,10 +1,7 @@
 document.onreadystatechange = function () {
     const target = document.querySelector("#jsDetector");
     target.innerHTML = "(" + whichBrowser() + ")";
-    console.log(navigator.userAgent);
-    console.log("window.safari", window.safari);
-    console.log(window.chrome);
-}
+};
 
 function whichBrowser() {
     if (isSafari()) {
@@ -17,6 +14,8 @@ function whichBrowser() {
         return "Internet Explorer";
     } else if (isOpera()) {
         return "Opera";
+    } else if (isVivaldi()) {
+        return "Vivalid";
     } else if (isChrome()) {
         return "Chrome";
     } else {
@@ -24,26 +23,34 @@ function whichBrowser() {
     }
 }
 
+function agentHas(keyword) {
+    navigator.userAgent.toLowerCase().search(keyword.toLowerCase()) >= 0;
+}
+
 function isIE() {
     return !!document.documentMode;
 }
 
 function isSafari() {
-    return navigator.userAgent.search("Safari") >= 0 && (!!window.safari || navigator.userAgent.search("iPhone") >= 0);
+    return !!window.ApplePaySetupFeature || !!window.safari;
 }
 
 function isChrome() {
-    return (navigator.userAgent.search("Chrome") >= 0 && !!!window.safari) || (!!window.chrome);
+    return agentHas("CriOS") || agentHas("Chrome") || !!window.chrome;
 }
 
 function isFirefox() {
-    return navigator.userAgent.search("Firefox") >= 0 && !!!window.safari;
+    return agentHas("Firefox") || agentHas("FxiOS") || agentHas("Focus");
 }
 
 function isEdge() {
-    return navigator.userAgent.search("Edg") >= 0 && !!!window.safari;
+    return agentHas("Edg");
 }
 
 function isOpera() {
-    return navigator.userAgent.search("OPR") >= 0 && !!!window.safari;
+    return agentHas("OPR");
+}
+
+function isVivaldi() {
+    return agentHas("Vivaldi");
 }

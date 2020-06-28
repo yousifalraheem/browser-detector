@@ -32,7 +32,7 @@ function isIE() {
 }
 
 function isSafari() {
-    return !!window.ApplePaySetupFeature || !!window.safari;
+    return (!!window.ApplePaySetupFeature || !!window.safari) && agentHas("Safari") && (!agentHas("Chrome") || !agentHas("CriOS"));
 }
 
 function isChrome() {

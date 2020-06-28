@@ -36,7 +36,6 @@ function isSafari() {
 }
 
 function isChrome() {
-    console.log(navigator.userAgent, !!window.chrome);
     return agentHas("CriOS") || agentHas("Chrome") || !!window.chrome;
 }
 

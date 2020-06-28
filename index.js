@@ -4,9 +4,7 @@ document.onreadystatechange = function () {
 };
 
 function whichBrowser() {
-    if (isSafari()) {
-        return "Safari";
-    } else if (isFirefox()) {
+    if (isFirefox()) {
         return "Firefox";
     } else if (isEdge()) {
         return "Edge";
@@ -18,6 +16,8 @@ function whichBrowser() {
         return "Vivalid";
     } else if (isChrome()) {
         return "Chrome";
+    } else if (isSafari()) {
+        return "Safari";
     } else {
         return "Unknown";
     }
@@ -32,10 +32,7 @@ function isIE() {
 }
 
 function isSafari() {
-    console.log("isSafari -> window.ApplePaySetupFeature", window.ApplePaySetupFeature)
-    console.log("isSafari -> window.safari", window.safari)
-    console.log("Agent", navigator.userAgent);
-    return (!!window.ApplePaySetupFeature || !!window.safari) && agentHas("Safari") && (!agentHas("Chrome") || !agentHas("CriOS"));
+    return (!!window.ApplePaySetupFeature || !!window.safari) && agentHas("Safari") && !agentHas("Chrome") && !agentHas("CriOS");
 }
 
 function isChrome() {

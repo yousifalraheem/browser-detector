@@ -30,7 +30,7 @@ function isSafari() {
 }
 
 function isChrome() {
-    return navigator.userAgent.search("Chrome") >= 0 && !!!window.safari
+    return navigator.userAgent.search("Chrome") >= 0 && !!!window.safari && !!window.chrome
 }
 
 function isFirefox() {

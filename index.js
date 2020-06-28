@@ -1,6 +1,6 @@
 document.onreadystatechange = function () {
     const target = document.querySelector("#jsDetector");
-    target.innerHTML = `\(${whichBrowser()}\)`;
+    target.innerHTML = "(" + whichBrowser() + ")";
 }
 
 function whichBrowser() {

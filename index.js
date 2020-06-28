@@ -24,7 +24,7 @@ function whichBrowser() {
 }
 
 function agentHas(keyword) {
-    navigator.userAgent.toLowerCase().search(keyword.toLowerCase()) >= 0;
+    return navigator.userAgent.toLowerCase().search(keyword.toLowerCase()) > -1;
 }
 
 function isIE() {
